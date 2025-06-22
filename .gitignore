@@ -83,4 +83,7 @@ temp/
 *.sqlite3
 
 # Prisma
-prisma/dev.db 
+prisma/dev.db
+
+# FTP folder (deployment files)
+ftp/ 
