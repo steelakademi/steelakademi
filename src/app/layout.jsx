@@ -1,18 +1,13 @@
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Steel Akademi - Şirket İçi Eğitim Platformu',
   description: 'Şirket şubelerine özel eğitim platformu. Video eğitimler, blog yazıları, soru-cevap sistemi ve daha fazlası.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
