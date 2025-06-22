@@ -6,6 +6,8 @@ const prisma = new PrismaClient()
 
 export async function POST() {
   try {
+    console.log('Seed işlemi başlatılıyor...')
+    
     // Admin kullanıcısı oluştur
     const hashedPassword = await bcrypt.hash('admin123', 10)
     
@@ -76,7 +78,11 @@ export async function POST() {
   } catch (error) {
     console.error('Seed error:', error)
     return NextResponse.json(
-      { success: false, error: 'Seed işlemi başarısız oldu' },
+      { 
+        success: false, 
+        error: 'Seed işlemi başarısız oldu',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     )
   }
