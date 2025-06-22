@@ -1,28 +1,3 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { 
-  Play, 
-  BookOpen, 
-  MessageSquare, 
-  Bell, 
-  BarChart3, 
-  Award, 
-  Clock, 
-  TrendingUp,
-  Users,
-  Target,
-  CheckCircle,
-  Star,
-  ArrowRight,
-  Video,
-  FileText,
-  HelpCircle
-} from 'lucide-react'
-
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-steel-900">
