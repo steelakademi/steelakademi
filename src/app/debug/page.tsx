@@ -1,25 +1,9 @@
-import { prisma } from '@/lib/prisma'
-
 export default async function DebugPage() {
   const envVars = {
     DATABASE_URL: process.env.DATABASE_URL ? '✅ Set' : '❌ Not Set',
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET ? '✅ Set' : '❌ Not Set',
     NEXTAUTH_URL: process.env.NEXTAUTH_URL ? '✅ Set' : '❌ Not Set',
     NODE_ENV: process.env.NODE_ENV || 'Not Set'
-  }
-
-  let dbStatus = '❌ Unknown'
-  let dbError = null
-
-  try {
-    // Veritabanı bağlantısını test et
-    await prisma.$connect()
-    dbStatus = '✅ Connected'
-  } catch (error) {
-    dbStatus = '❌ Connection Failed'
-    dbError = error instanceof Error ? error.message : 'Unknown error'
-  } finally {
-    await prisma.$disconnect()
   }
 
   return (
@@ -41,24 +25,6 @@ export default async function DebugPage() {
                     </span>
                   </div>
                 ))}
-              </div>
-            </div>
-
-            {/* Database Status */}
-            <div className="bg-green-50 p-4 rounded-lg">
-              <h2 className="text-xl font-semibold text-green-900 mb-3">Veritabanı Durumu</h2>
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold">Bağlantı:</span>
-                  <span className={`font-semibold ${dbStatus.includes('✅') ? 'text-green-600' : 'text-red-600'}`}>
-                    {dbStatus}
-                  </span>
-                </div>
-                {dbError && (
-                  <div className="bg-red-100 p-3 rounded border border-red-300">
-                    <p className="text-red-800 text-sm font-mono">{dbError}</p>
-                  </div>
-                )}
               </div>
             </div>
 
