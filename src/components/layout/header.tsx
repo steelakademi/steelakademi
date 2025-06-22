@@ -1,30 +1,3 @@
-'use client'
-
-import Link from 'next/link'
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { 
-  Menu, 
-  X, 
-  User, 
-  LogOut, 
-  Settings, 
-  BookOpen, 
-  Video, 
-  MessageSquare, 
-  Bell, 
-  BarChart3,
-  FileText,
-  HelpCircle,
-  Search,
-  ShoppingCart,
-  Heart
-} from 'lucide-react'
-import { useAuth } from '@/hooks/useAuth'
-import { useNotifications } from '@/hooks/useNotifications'
-import Image from 'next/image'
-
 export default function Header() {
   return (
     <header className="bg-steel-800 border-b border-steel-700">
